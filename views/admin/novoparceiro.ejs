@@ -1,0 +1,61 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/navbar.ejs') %>
+
+<div class="page-wrapper">
+    <div class="page-header">
+        <h1>Novo Parceiro</h1>
+        <p class="subtitle">Cadastre uma empresa amiga do Grupo Minuano</p>
+    </div>
+
+    <div class="container">
+        <div class="admin-nav">
+            <a href="/admin/parceiros" class="btn btn-outline">← Voltar</a>
+        </div>
+
+        <div class="card">
+            <h2>Dados do Parceiro</h2>
+
+            <% if (erro) { %>
+            <div class="alert alert-erro"><%= erro %></div>
+            <% } %>
+
+            <form method="post" action="/admin/parceiros/salvar" enctype="multipart/form-data">
+                <div class="form-group">
+                    <div class="form-field">
+                        <label for="nome">Nome da Empresa *</label>
+                        <input type="text" id="nome" name="nome" placeholder="Ex: Padaria do Seu João" required maxlength="200">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="rede">Rede / Canal Principal</label>
+                            <select id="rede" name="rede">
+                                <option value="">Selecione...</option>
+                                <option value="Instagram">Instagram</option>
+                                <option value="Website">Website</option>
+                                <option value="Facebook">Facebook</option>
+                                <option value="WhatsApp">WhatsApp</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="link">Link (URL)</label>
+                            <input type="url" id="link" name="link" placeholder="https://...">
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="descricao">Descrição</label>
+                        <textarea id="descricao" name="descricao" placeholder="Breve descrição da empresa ou parceria..." rows="3" maxlength="500"></textarea>
+                    </div>
+                    <div class="form-field">
+                        <label for="imagem">Logomarca</label>
+                        <input type="file" id="imagem" name="imagem" accept="image/*" style="padding:10px;border:1.5px solid #E2DCC9;border-radius:var(--r-md);background:var(--creme);">
+                        <small style="color:var(--texto-suave);font-size:12px;">Máximo 3MB. Formatos: JPG, PNG, WebP.</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Salvar Parceiro</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

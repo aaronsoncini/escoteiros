@@ -1,0 +1,160 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<div class="page-wrapper">
+    <div class="page-header">
+        <h1>Nossos Ramos</h1>
+        <p class="subtitle">Cada fase da vida tem sua própria aventura no escotismo</p>
+    </div>
+
+    <div class="container">
+        <div class="ramos-detalhe-grid">
+
+            <div class="ramo-detalhe lobinhos-d">
+                <div class="ramo-logo-wrap lobinhos-bg">
+                    <img src="/imgs/ramos/lobinho.png" alt="Logo Ramo Lobinho" class="ramo-logo">
+                </div>
+                <div class="ramo-body">
+                    <span class="ramo-faixa lobinhos-tag">6 a 10 anos</span>
+                    <p>Os Lobinhos vivem as aventuras do Livro da Selva! Com jogos, histórias e brincadeiras, aprendem valores fundamentais enquanto descobrem o mundo ao seu redor.</p>
+                    <ul>
+                        <li>Primeiros passos no escotismo</li>
+                        <li>Aprendizado lúdico e criativo</li>
+                        <li>Atividades em grupo e na natureza</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ramo-detalhe escoteiros-d">
+                <div class="ramo-logo-wrap escoteiros-bg">
+                    <img src="/imgs/ramos/escoteiro.png" alt="Logo Ramo Escoteiro" class="ramo-logo">
+                </div>
+                <div class="ramo-body">
+                    <span class="ramo-faixa escoteiros-tag">11 a 14 anos</span>
+                    <p>Os Escoteiros vivem grandes aventuras! Trilhas, acampamentos, técnicas de sobrevivência e projetos comunitários marcam esta fase de desenvolvimento.</p>
+                    <ul>
+                        <li>Aventuras e trilhas ao ar livre</li>
+                        <li>Técnicas de acampamento</li>
+                        <li>Desenvolvimento de habilidades</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ramo-detalhe senior-d">
+                <div class="ramo-logo-wrap senior-bg">
+                    <img src="/imgs/ramos/senior.png" alt="Logo Ramo Sênior" class="ramo-logo">
+                </div>
+                <div class="ramo-body">
+                    <span class="ramo-faixa senior-tag">15 a 17 anos</span>
+                    <p>Os Sênior assumem desafios maiores. Liderança, protagonismo e projetos de impacto social caracterizam esta etapa de transição para a vida adulta.</p>
+                    <ul>
+                        <li>Desenvolvimento de liderança</li>
+                        <li>Projetos em grupo</li>
+                        <li>Ação comunitária</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ramo-detalhe pioneiros-d">
+                <div class="ramo-logo-wrap pioneiros-bg">
+                    <img src="/imgs/ramos/pioneiro.png" alt="Logo Ramo Pioneiro" class="ramo-logo">
+                </div>
+                <div class="ramo-body">
+                    <span class="ramo-faixa pioneiros-tag">18 a 21 anos</span>
+                    <p>Os Pioneiros são os agentes de transformação. Com autonomia e responsabilidade, executam projetos de serviço real e impacto positivo na comunidade.</p>
+                    <ul>
+                        <li>Serviço e voluntariado</li>
+                        <li>Autonomia e responsabilidade</li>
+                        <li>Projetos de alto impacto</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="alert alert-info" style="margin-top:10px;">
+            🙋 Interessado em ingressar em algum ramo?
+            <a href="/contato" style="font-weight:700;color:var(--verde-escuro);text-decoration:underline;">Fale conosco</a> ou visite nossa sede aos sábados.
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>
+
+<style>
+.ramos-detalhe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+}
+
+/* Card base */
+.ramo-detalhe {
+    background: var(--branco);
+    border-radius: var(--r-xl);
+    overflow: hidden;
+    box-shadow: var(--sh-3);
+    display: flex;
+    flex-direction: column;
+    transition: transform .35s var(--ease-out), box-shadow .35s;
+}
+.ramo-detalhe:hover { transform: translateY(-6px); box-shadow: var(--sh-4); }
+
+/* Topo colorido com a logo */
+.ramo-logo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px 28px;
+    position: relative;
+    overflow: hidden;
+}
+.ramo-logo-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, rgba(255,255,255,.18), transparent 70%);
+    pointer-events: none;
+}
+.ramo-logo {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 16px rgba(0,0,0,.25));
+    position: relative;
+    z-index: 1;
+    transition: transform .4s var(--ease-out);
+}
+.ramo-detalhe:hover .ramo-logo { transform: scale(1.07) rotate(-2deg); }
+
+/* Cores de fundo por ramo */
+.lobinhos-bg  { background: linear-gradient(135deg, #E8950A, #F5B52A); }
+.escoteiros-bg { background: linear-gradient(135deg, #1a6b1a, #3aaa3a); }
+.senior-bg    { background: linear-gradient(135deg, #7a0e2e, #b01840); }
+.pioneiros-bg  { background: linear-gradient(135deg, #0a4a7a, #1068b0); }
+
+/* Corpo do card */
+.ramo-body { padding: 22px 22px 26px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+
+.ramo-faixa {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: var(--r-pill);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: fit-content;
+}
+.lobinhos-tag  { background: rgba(232,149,10,.15); color: #a06600; border: 1px solid rgba(232,149,10,.35); }
+.escoteiros-tag { background: rgba(26,107,26,.12); color: #1a6b1a; border: 1px solid rgba(26,107,26,.3); }
+.senior-tag    { background: rgba(122,14,46,.1);  color: #7a0e2e; border: 1px solid rgba(122,14,46,.3); }
+.pioneiros-tag  { background: rgba(10,74,122,.1);  color: #0a4a7a; border: 1px solid rgba(10,74,122,.3); }
+
+.ramo-body p { font-size: 14px; color: var(--texto-suave); line-height: 1.65; margin: 0; }
+.ramo-body ul { padding-left: 18px; color: var(--texto-suave); font-size: 13px; line-height: 2.1; margin: 0; }
+.ramo-body ul li::marker { color: var(--verde-claro); }
+
+/* Nome do ramo — extraído da imagem, mas mantemos acessível */
+.ramo-nome-sr { position: absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+</style>

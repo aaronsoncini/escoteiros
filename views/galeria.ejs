@@ -1,0 +1,155 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<div class="page-wrapper">
+    <div class="page-header">
+        <h1>Galeria</h1>
+        <p class="subtitle">Momentos e aventuras do Grupo Minuano</p>
+    </div>
+
+    <div class="container-lg">
+
+        <!-- ── GRADE DE FOTOS ─────────────────────────────────────── -->
+        <div class="galeria-header">
+            <h2>Todas as fotos <span class="galeria-count">(<%= fotos.length %>)</span></h2>
+        </div>
+
+        <% if (fotos.length === 0) { %>
+        <div class="empty-state">
+            <div class="empty-icon">📷</div>
+            <p>Nenhuma foto na galeria ainda.<br>As fotos são adicionadas automaticamente ao cadastrar eventos com imagem na Agenda.</p>
+        </div>
+        <% } else { %>
+        <div class="galeria-grid" id="galeriaGrid">
+            <% fotos.forEach((foto, i) => {
+                const d = new Date(foto.data + 'T00:00:00');
+                const meses = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+                const dataFmt = d.getDate() + ' ' + meses[d.getMonth()] + ' ' + d.getFullYear();
+            %>
+            <button
+                class="galeria-item"
+                onclick="abrirLightbox(<%= i %>)"
+                aria-label="Ver foto: <%= foto.titulo %>"
+                data-index="<%= i %>"
+            >
+                <img src="/imgs/eventos/<%= foto.imagem %>" alt="<%= foto.titulo %>" loading="lazy">
+                <div class="galeria-overlay">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    <span><%= foto.titulo %></span>
+                    <small><%= dataFmt %></small>
+                </div>
+            </button>
+            <% }) %>
+        </div>
+        <% } %>
+
+    </div>
+</div>
+
+<!-- ── LIGHTBOX ──────────────────────────────────────────────────── -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visualizador de fotos" hidden>
+    <button class="lightbox-fechar" id="lightboxFechar" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <button class="lightbox-nav prev" id="lbPrev" aria-label="Anterior">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <div class="lightbox-conteudo">
+        <img id="lightboxImg" src="" alt="">
+        <div class="lightbox-info">
+            <strong id="lightboxTitulo"></strong>
+            <span id="lightboxData"></span>
+        </div>
+        <div class="lightbox-contador" id="lightboxContador"></div>
+    </div>
+    <button class="lightbox-nav next" id="lbNext" aria-label="Próxima">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+</div>
+
+<%- include('partials/footer.ejs') %>
+
+<style>
+/* ── GALERIA HEADER ── */
+.galeria-header { display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+.galeria-header h2 { font-size:18px; font-weight:800; color:var(--floresta); }
+.galeria-count { color:var(--texto-suave); font-size:15px; font-weight:400; font-family:'Inter',sans-serif; }
+
+/* ── GRADE ── */
+.galeria-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; }
+.galeria-item { position:relative; border-radius:var(--r-md); overflow:hidden; background:var(--cinza-medio); aspect-ratio:1; cursor:pointer; border:none; padding:0; display:block; width:100%; }
+.galeria-item img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .45s var(--ease-out); }
+.galeria-item:hover img { transform:scale(1.08); }
+.galeria-overlay { position:absolute; inset:0; background:rgba(14,59,31,.72); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; opacity:0; transition:opacity .3s; color:#fff; padding:12px; text-align:center; }
+.galeria-item:hover .galeria-overlay,
+.galeria-item:focus-visible .galeria-overlay { opacity:1; }
+.galeria-overlay span { font-size:13px; font-weight:700; line-height:1.3; }
+.galeria-overlay small { font-size:11px; opacity:.85; }
+
+/* ── LIGHTBOX ── */
+.lightbox { position:fixed; inset:0; z-index:500; background:rgba(5,20,10,.93); backdrop-filter:blur(10px); display:flex; align-items:center; justify-content:center; gap:10px; padding:16px; animation:fadeInLb .25s ease both; }
+.lightbox[hidden] { display:none; }
+@keyframes fadeInLb { from{opacity:0} to{opacity:1} }
+.lightbox-conteudo { display:flex; flex-direction:column; align-items:center; max-width:min(900px,90vw); max-height:90vh; gap:12px; }
+.lightbox-conteudo img { max-width:100%; max-height:72vh; object-fit:contain; border-radius:var(--r-lg); box-shadow:0 20px 60px rgba(0,0,0,.6); display:block; }
+.lightbox-info { text-align:center; color:#fff; }
+.lightbox-info strong { display:block; font-size:1rem; font-weight:700; margin-bottom:3px; }
+.lightbox-info span   { font-size:.82rem; opacity:.7; }
+.lightbox-contador    { font-size:.78rem; color:rgba(255,255,255,.5); }
+.lightbox-fechar { position:absolute; top:16px; right:16px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); color:#fff; width:44px; height:44px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s; z-index:510; }
+.lightbox-fechar:hover { background:rgba(255,255,255,.25); }
+.lightbox-nav { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); color:#fff; width:52px; height:52px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s, transform .2s; flex-shrink:0; }
+.lightbox-nav:hover { background:rgba(255,255,255,.25); transform:scale(1.08); }
+@media (max-width:600px) { .galeria-grid { grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px; } .lightbox-nav { width:38px; height:38px; } }
+</style>
+
+<script>
+const fotos = [
+    <% fotos.forEach((foto, i) => {
+        const d = new Date(foto.data + 'T00:00:00');
+        const meses = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+        const dataFmt = d.getDate() + ' ' + meses[d.getMonth()] + ' ' + d.getFullYear();
+    %>
+    { src: '/imgs/eventos/<%= foto.imagem %>', titulo: '<%= foto.titulo.replace(/'/g, "\\'") %>', data: '<%= dataFmt %>' }<% if (i < fotos.length - 1) { %>,<% } %>
+    <% }) %>
+];
+
+// ── LIGHTBOX ──
+const lb       = document.getElementById('lightbox');
+const lbImg    = document.getElementById('lightboxImg');
+const lbTitulo = document.getElementById('lightboxTitulo');
+const lbData   = document.getElementById('lightboxData');
+const lbCount  = document.getElementById('lightboxContador');
+let lbIdx = 0;
+
+function abrirLightbox(i) {
+    lbIdx = i;
+    renderLb();
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+    document.getElementById('lightboxFechar').focus();
+}
+function fecharLightbox() {
+    lb.hidden = true;
+    document.body.style.overflow = '';
+}
+function renderLb() {
+    const f = fotos[lbIdx];
+    lbImg.src     = f.src;
+    lbImg.alt     = f.titulo;
+    lbTitulo.textContent = f.titulo;
+    lbData.textContent   = f.data;
+    lbCount.textContent  = (lbIdx + 1) + ' / ' + fotos.length;
+}
+
+document.getElementById('lightboxFechar').onclick = fecharLightbox;
+document.getElementById('lbPrev').onclick = () => { lbIdx = (lbIdx - 1 + fotos.length) % fotos.length; renderLb(); };
+document.getElementById('lbNext').onclick = () => { lbIdx = (lbIdx + 1) % fotos.length; renderLb(); };
+lb.addEventListener('click', e => { if (e.target === lb) fecharLightbox(); });
+document.addEventListener('keydown', e => {
+    if (lb.hidden) return;
+    if (e.key === 'Escape')     fecharLightbox();
+    if (e.key === 'ArrowLeft')  { lbIdx = (lbIdx - 1 + fotos.length) % fotos.length; renderLb(); }
+    if (e.key === 'ArrowRight') { lbIdx = (lbIdx + 1) % fotos.length; renderLb(); }
+});
+</script>

@@ -1,0 +1,38 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<div class="page-wrapper">
+    <div class="page-header">
+        <h1>Empresas Amigas</h1>
+        <p class="subtitle">Parceiros que acreditam no futuro dos nossos escoteiros</p>
+    </div>
+
+    <div class="container">
+        <% if (parceiros.length === 0) { %>
+        <div class="empty-state">
+            <div class="empty-icon">🤝</div>
+            <p>Nenhum parceiro cadastrado ainda.</p>
+        </div>
+        <% } else { %>
+        <div class="items-grid">
+            <% parceiros.forEach(parceiro => { %>
+            <div class="item-card">
+                <% if (parceiro.imagem) { %>
+                <img src="/imgs/parceiros/<%= parceiro.imagem %>" alt="<%= parceiro.nome %>">
+                <% } else { %>
+                <div style="width:100px;height:100px;background:rgba(0,83,33,.08);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:32px;">🏢</div>
+                <% } %>
+                <div class="nome"><%= parceiro.nome %></div>
+                <% if (parceiro.rede) { %><div class="detalhe"><%= parceiro.rede %></div><% } %>
+                <% if (parceiro.descricao) { %><p style="font-size:13px;color:var(--texto-suave);margin-top:8px;"><%= parceiro.descricao %></p><% } %>
+                <% if (parceiro.link) { %>
+                <a href="<%= parceiro.link %>" target="_blank" rel="noopener noreferrer" class="link-btn">Visitar →</a>
+                <% } %>
+            </div>
+            <% }) %>
+        </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

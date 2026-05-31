@@ -1,0 +1,69 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/navbar.ejs') %>
+
+<div class="page-wrapper">
+    <div class="page-header">
+        <h1>Empresas Amigas</h1>
+        <p class="subtitle">Gerenciar parceiros do Grupo Minuano</p>
+    </div>
+
+    <div class="container">
+        <div class="admin-nav">
+            <a href="/admin/parceiros/novo" class="btn btn-primary">+ Novo Parceiro</a>
+            <a href="/admin/eventos" class="btn btn-outline">Eventos</a>
+            <a href="/admin/logout" class="btn btn-outline">Sair</a>
+        </div>
+
+        <div class="card">
+            <h2>Parceiros Cadastrados</h2>
+            <% if (parceiros.length === 0) { %>
+            <div class="empty-state">
+                <div class="empty-icon">🤝</div>
+                <p>Nenhum parceiro cadastrado ainda.</p>
+            </div>
+            <% } else { %>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Logo</th>
+                            <th>Nome</th>
+                            <th>Rede/Canal</th>
+                            <th>Link</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% parceiros.forEach(parceiro => { %>
+                        <tr>
+                            <td>
+                                <% if (parceiro.imagem) { %>
+                                <img src="/imgs/parceiros/<%= parceiro.imagem %>" alt="<%= parceiro.nome %>" style="width:48px;height:48px;object-fit:cover;border-radius:var(--r-sm);border:1px solid var(--cinza-medio);">
+                                <% } else { %>
+                                <div style="width:48px;height:48px;background:rgba(0,83,33,.08);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:20px;">🏢</div>
+                                <% } %>
+                            </td>
+                            <td><strong><%= parceiro.nome %></strong></td>
+                            <td><%= parceiro.rede || '—' %></td>
+                            <td>
+                                <% if (parceiro.link) { %>
+                                <a href="<%= parceiro.link %>" target="_blank" rel="noopener noreferrer" style="color:var(--verde-escuro);font-size:13px;">Ver →</a>
+                                <% } else { %>—<% } %>
+                            </td>
+                            <td>
+                                <form method="post" action="/admin/parceiros/deletar" style="display:inline;" onsubmit="return confirm('Deletar este parceiro?')">
+                                    <input type="hidden" name="id" value="<%= parceiro.id %>">
+                                    <button type="submit" class="btn-danger">Deletar</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

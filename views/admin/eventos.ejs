@@ -1,0 +1,64 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/navbar.ejs') %>
+
+<div class="page-wrapper">
+    <div class="page-header">
+        <h1>Gerenciar Eventos</h1>
+        <p class="subtitle">Agenda e Calendário do Grupo Minuano</p>
+    </div>
+
+    <div class="container">
+        <div class="admin-nav">
+            <a href="/admin/eventos/novo" class="btn btn-primary">+ Novo Evento</a>
+            <a href="/admin/parceiros" class="btn btn-outline">Parceiros</a>
+            <a href="/admin/logout" class="btn btn-outline">Sair</a>
+        </div>
+
+        <div class="card">
+            <h2>Eventos Cadastrados</h2>
+            <% if (eventos.length === 0) { %>
+            <div class="empty-state">
+                <div class="empty-icon">📅</div>
+                <p>Nenhum evento cadastrado.</p>
+            </div>
+            <% } else { %>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Título</th>
+                            <th>Tipo</th>
+                            <th>Horário</th>
+                            <th>Local</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% eventos.forEach(evento => {
+                            const d = new Date(evento.data + 'T00:00:00');
+                            const dataFmt = d.toLocaleDateString('pt-BR');
+                        %>
+                        <tr>
+                            <td><%= dataFmt %></td>
+                            <td><strong><%= evento.titulo %></strong></td>
+                            <td><span class="badge badge-<%= evento.tipo %>"><%= evento.tipo === 'agenda' ? 'Agenda' : 'Calendário' %></span></td>
+                            <td><%= evento.horario || '—' %></td>
+                            <td><%= evento.local || '—' %></td>
+                            <td>
+                                <form method="post" action="/admin/eventos/deletar" style="display:inline;" onsubmit="return confirm('Deletar este evento?')">
+                                    <input type="hidden" name="id" value="<%= evento.id %>">
+                                    <button type="submit" class="btn-danger">Deletar</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

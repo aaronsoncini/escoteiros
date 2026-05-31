@@ -1,0 +1,309 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<!-- ========================= HERO ========================= -->
+<header class="hero-scout">
+    <svg class="topo-bg" viewBox="0 0 800 400" preserveAspectRatio="none" aria-hidden="true">
+        <g fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1.2">
+            <path d="M0,120 Q200,40 400,120 T800,120"/>
+            <path d="M0,160 Q200,80 400,160 T800,160"/>
+            <path d="M0,200 Q200,120 400,200 T800,200"/>
+            <path d="M0,240 Q200,160 400,240 T800,240"/>
+        </g>
+    </svg>
+    <svg class="deco-bussola" viewBox="0 0 200 200" aria-hidden="true">
+        <circle cx="100" cy="100" r="85" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="65" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+        <polygon points="100,30 110,100 100,90 90,100" fill="rgba(255,255,255,0.45)"/>
+        <polygon points="100,170 110,100 100,110 90,100" fill="rgba(255,255,255,0.18)"/>
+        <text x="100" y="22" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Inter, sans-serif" font-size="14" font-weight="700">N</text>
+        <text x="100" y="190" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-family="Inter, sans-serif" font-size="14">S</text>
+        <text x="180" y="105" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-family="Inter, sans-serif" font-size="14">L</text>
+        <text x="20" y="105" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-family="Inter, sans-serif" font-size="14">O</text>
+    </svg>
+    <div class="hero-conteudo">
+        <span class="eyebrow">
+            <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M12 2c-1.4 2.4-2 4.5-2 6 0 1.7 1 2.5 2 3 1-.5 2-1.3 2-3 0-1.5-.6-3.6-2-6zM12 13c-.7 0-1.3.2-1.8.5L9 22h6l-1.2-8.5c-.5-.3-1.1-.5-1.8-.5z"/></svg>
+            71º Grupo de Escoteiros Minuano
+        </span>
+        <h1>Desperte o <span class="destaque">explorador</span><span class="quebra">que existe em você.</span></h1>
+        <p>Aventura, valores e amizade para a vida toda. Faça parte do Grupo Escoteiro Minuano — Zona Leste de São Paulo.</p>
+        <div class="hero-stats">
+            <div class="stat">
+                <strong>Av. Waldemar Tietz, 1154</strong>
+                <span>Zona Leste · São Paulo</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+                <strong>Sábados · 14h às 18h</strong>
+                <span>Sede aberta para visitas</span>
+            </div>
+        </div>
+    </div>
+    <svg class="hero-mountains" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+        <path fill="#FAF6EA" opacity="0.6" d="M0,120 L0,95 Q120,80 240,85 T480,80 T720,90 T960,75 T1200,85 T1440,80 L1440,120 Z"/>
+        <path fill="#FAF6EA" d="M0,120 L0,105 Q160,90 320,95 T640,95 T960,90 T1280,95 T1440,95 L1440,120 Z"/>
+    </svg>
+</header>
+
+<!-- ========================= DESTAQUES ========================= -->
+<section class="destaques-section">
+    <div class="container-lg">
+        <div class="destaques-grid">
+            <div class="destaque-card">
+                <div class="destaque-icon">🏕️</div>
+                <h3>Missão</h3>
+                <p>Formar cidadãos ativos, responsáveis e comprometidos com a comunidade.</p>
+            </div>
+            <div class="destaque-card">
+                <div class="destaque-icon">🌿</div>
+                <h3>Valores</h3>
+                <p>Respeito, coragem, solidariedade e amor à natureza guiam cada passo.</p>
+            </div>
+            <div class="destaque-card">
+                <div class="destaque-icon">⚙️</div>
+                <h3>Atividades</h3>
+                <p>Acampamentos, trilhas, serviços comunitários e projetos ao ar livre.</p>
+                <a href="/agenda" class="destaque-link">Ver Agenda →</a>
+            </div>
+            <div class="destaque-card">
+                <div class="destaque-icon">✋</div>
+                <h3>Junte-se</h3>
+                <p>Venha nos visitar aos sábados. Abertura para novas patrulhas!</p>
+                <a href="/contato" class="destaque-link">Fale Conosco →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========================= RAMOS ========================= -->
+<section class="ramos-section">
+    <div class="container-lg">
+        <div class="page-header">
+            <h1>Nossos Ramos</h1>
+            <p class="subtitle">Cada ramo tem sua própria aventura, desafios e propósito</p>
+        </div>
+        <div class="ramos-grid">
+            <a href="/ramos" class="ramo-card lobinhos">
+                <img src="/imgs/ramos/lobinho.png" alt="Logo Lobinhos" class="ramo-img">
+                <span class="ramo-idade">6 a 10 anos</span>
+                <p>Aprendizado lúdico, histórias e brincadeiras — os primeiros passos no escotismo.</p>
+            </a>
+            <a href="/ramos" class="ramo-card escoteiros">
+                <img src="/imgs/ramos/escoteiro.png" alt="Logo Escoteiros" class="ramo-img">
+                <span class="ramo-idade">11 a 14 anos</span>
+                <p>Aventuras, trilhas e desenvolvimento de habilidades para a vida.</p>
+            </a>
+            <a href="/ramos" class="ramo-card senior">
+                <img src="/imgs/ramos/senior.png" alt="Logo Sênior" class="ramo-img">
+                <span class="ramo-idade">15 a 17 anos</span>
+                <p>Liderança, desafios e projetos em grupo para jovens protagonistas.</p>
+            </a>
+            <a href="/ramos" class="ramo-card pioneiros">
+                <img src="/imgs/ramos/pioneiro.png" alt="Logo Pioneiros" class="ramo-img">
+                <span class="ramo-idade">18 a 21 anos</span>
+                <p>Serviço, autonomia e ações na comunidade com impacto real.</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ========================= CARROSSEL GALERIA ========================= -->
+<% if (fotos.length > 0) { %>
+<section class="carrossel-section">
+    <div class="container-lg">
+        <div class="page-header" style="padding-top:0;">
+            <h1>Galeria de Fotos</h1>
+            <p class="subtitle">Momentos e aventuras do Grupo Minuano</p>
+        </div>
+        <div class="carrossel-wrap">
+            <div class="carrossel" id="carrossel" aria-label="Carrossel de fotos">
+                <div class="carrossel-track" id="carrosselTrack">
+                    <% fotos.forEach((foto, i) => {
+                        const d = new Date(foto.data + 'T00:00:00');
+                        const meses = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+                        const dataFmt = d.getDate() + ' ' + meses[d.getMonth()] + ' ' + d.getFullYear();
+                    %>
+                    <div class="carrossel-slide" aria-label="Foto <%= i + 1 %> de <%= fotos.length %>">
+                        <img src="/imgs/eventos/<%= foto.imagem %>" alt="<%= foto.titulo %>">
+                        <div class="carrossel-legenda">
+                            <span class="carrossel-titulo"><%= foto.titulo %></span>
+                            <span class="carrossel-data"><%= dataFmt %></span>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+                <button class="carrossel-btn prev" id="btnPrev" aria-label="Foto anterior">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <button class="carrossel-btn next" id="btnNext" aria-label="Próxima foto">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+                <div class="carrossel-dots" id="carrosselDots" role="tablist"></div>
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:22px;">
+            <a href="/galeria" class="btn btn-outline">Ver galeria completa →</a>
+        </div>
+    </div>
+</section>
+<% } %>
+
+<!-- ========================= CITAÇÃO ========================= -->
+<section class="citacao-section">
+    <div class="container">
+        <blockquote class="citacao-box">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/>
+                <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/>
+            </svg>
+            <p>Tente deixar este mundo um pouco melhor do que você o encontrou.</p>
+            <cite>— Baden-Powell, fundador do Escotismo</cite>
+        </blockquote>
+    </div>
+</section>
+
+<%- include('partials/footer.ejs') %>
+
+<style>
+/* ── HERO STYLES ── */
+.hero-scout {
+    position:relative;
+    background: radial-gradient(circle at 20% 20%, rgba(147,192,31,.18), transparent 50%),
+                linear-gradient(135deg, #0E3B1F 0%, #1A4D2E 60%, #005321 100%);
+    color:#fff;
+    padding: 80px var(--pad-x) 120px;
+    overflow:hidden;
+    min-height: 80vh;
+    display:flex;
+    align-items:center;
+}
+.topo-bg { position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+.deco-bussola {
+    display:none; position:absolute; top:50%; right:6%; width:240px; height:240px;
+    transform:translateY(-55%); opacity:.6; z-index:1; pointer-events:none;
+    animation: girarBussola 80s linear infinite;
+}
+@keyframes girarBussola { from{transform:translateY(-55%) rotate(0)} to{transform:translateY(-55%) rotate(360deg)} }
+.hero-conteudo { position:relative; z-index:3; max-width:760px; }
+.eyebrow {
+    display:inline-flex; align-items:center; gap:8px;
+    padding:8px 16px; background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.28);
+    border-radius:var(--r-pill); font-size:.78rem; font-weight:600; text-transform:uppercase;
+    letter-spacing:1.2px; color:#fff; margin-bottom:22px;
+}
+.hero-scout h1 { font-size:clamp(2rem,6vw,3.8rem); font-weight:900; line-height:1.1; margin-bottom:18px; }
+.hero-scout .destaque { color:var(--verde-claro); }
+.hero-scout .quebra { display:block; }
+.hero-scout > .hero-conteudo > p { font-size:clamp(1rem,2.5vw,1.1rem); color:rgba(255,255,255,.88); margin-bottom:30px; max-width:560px; }
+.hero-stats {
+    display:flex; flex-wrap:wrap; gap:14px;
+    background:rgba(10,38,20,.55); border:1px solid rgba(255,255,255,.22);
+    border-radius:var(--r-lg); padding:18px 22px; width:fit-content;
+}
+.stat { display:flex; flex-direction:column; gap:3px; }
+.stat strong { font-size:.95rem; font-weight:600; color:#fff; }
+.stat span { font-size:.8rem; color:rgba(255,255,255,.7); }
+.stat-divider { width:1px; background:rgba(255,255,255,.22); align-self:stretch; }
+.hero-mountains { position:absolute; bottom:-1px; left:0; width:100%; height:60px; z-index:2; pointer-events:none; }
+
+/* ── DESTAQUES ── */
+.destaques-section { padding:60px 24px; background:var(--creme); }
+.destaques-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
+.destaque-card {
+    background:var(--branco); border-radius:var(--r-lg); padding:28px 22px;
+    box-shadow:var(--sh-2); border-top:4px solid var(--verde-claro);
+    transition:transform .3s var(--ease-out), box-shadow .3s;
+}
+.destaque-card:hover { transform:translateY(-4px); box-shadow:var(--sh-4); }
+.destaque-icon { font-size:36px; margin-bottom:12px; }
+.destaque-card h3 { font-size:16px; font-weight:800; color:var(--floresta); margin-bottom:8px; }
+.destaque-card p { font-size:14px; color:var(--texto-suave); line-height:1.5; }
+.destaque-link { display:inline-block; margin-top:12px; font-size:13px; font-weight:700; color:var(--verde-escuro); }
+.destaque-link:hover { color:var(--floresta); text-decoration:underline; }
+
+/* ── RAMOS ── */
+.ramos-section { padding:60px 24px; background:var(--pergaminho); }
+.ramos-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:18px; }
+.ramo-card { border-radius:var(--r-lg); padding:26px 20px; color:var(--branco); position:relative; overflow:hidden; text-decoration:none; display:flex; flex-direction:column; align-items:center; text-align:center; transition:transform .35s var(--ease-out), box-shadow .35s; }
+.ramo-card:hover { transform:translateY(-6px); box-shadow:var(--sh-4); }
+.lobinhos { background:linear-gradient(135deg, #E8950A, #F5B52A); }
+.escoteiros { background:linear-gradient(135deg, #1a6b1a, #3aaa3a); }
+.senior { background:linear-gradient(135deg, #7a0e2e, #b01840); }
+.pioneiros { background:linear-gradient(135deg, #0a4a7a, #1068b0); }
+.ramo-img { width:110px; height:110px; object-fit:contain; margin-bottom:12px; filter:drop-shadow(0 4px 12px rgba(0,0,0,.3)); transition:transform .4s var(--ease-out); }
+.ramo-card:hover .ramo-img { transform:scale(1.08) rotate(-2deg); }
+.ramo-card .ramo-idade { font-size:12px; font-weight:700; opacity:.9; display:block; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px; background:rgba(0,0,0,.18); padding:3px 10px; border-radius:var(--r-pill); }
+.ramo-card p { font-size:13px; opacity:.9; line-height:1.5; }
+
+/* ── CITAÇÃO ── */
+.citacao-section { padding:60px 24px; background:linear-gradient(135deg, #0E3B1F, #1A4D2E); }
+.citacao-box { text-align:center; color:var(--branco); max-width:640px; margin:0 auto; }
+.citacao-box svg { color:var(--verde-claro); margin-bottom:20px; opacity:.9; }
+.citacao-box p { font-family:'Bitter',Georgia,serif; font-size:clamp(1.1rem,3vw,1.4rem); font-style:italic; line-height:1.55; margin-bottom:16px; font-weight:700; }
+.citacao-box cite { font-size:.8rem; color:var(--verde-claro); font-style:normal; text-transform:uppercase; letter-spacing:1px; font-weight:600; }
+
+@media (min-width:768px) { .deco-bussola { display:block; } }
+@media (max-width:600px) { .hero-scout { min-height:auto; padding:60px 20px 90px; } .hero-stats { flex-direction:column; gap:8px; } .stat-divider { width:100%; height:1px; } }
+
+/* ── CARROSSEL ── */
+.carrossel-section { padding:60px 24px; background:var(--creme); }
+.carrossel-wrap { margin-top:10px; }
+.carrossel { position:relative; border-radius:var(--r-xl); overflow:hidden; box-shadow:var(--sh-4); background:var(--floresta); aspect-ratio:16/7; max-height:480px; }
+.carrossel-track { display:flex; height:100%; transition:transform .55s cubic-bezier(0.16,1,0.3,1); }
+.carrossel-slide { flex:0 0 100%; position:relative; overflow:hidden; }
+.carrossel-slide img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 6s ease; }
+.carrossel-slide.ativo img { transform:scale(1.04); }
+.carrossel-legenda { position:absolute; bottom:0; left:0; right:0; padding:40px 24px 20px; background:linear-gradient(transparent,rgba(14,59,31,.85)); color:#fff; display:flex; flex-direction:column; gap:4px; }
+.carrossel-titulo { font-size:clamp(.9rem,2.5vw,1.15rem); font-weight:700; font-family:'Bitter',Georgia,serif; }
+.carrossel-data   { font-size:.78rem; opacity:.8; }
+.carrossel-btn { position:absolute; top:50%; transform:translateY(-50%); z-index:10; background:rgba(255,255,255,.18); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.3); color:#fff; width:44px; height:44px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s, transform .2s; }
+.carrossel-btn:hover { background:rgba(255,255,255,.35); transform:translateY(-50%) scale(1.08); }
+.carrossel-btn.prev { left:14px; }
+.carrossel-btn.next { right:14px; }
+.carrossel-dots { position:absolute; bottom:14px; left:50%; transform:translateX(-50%); display:flex; gap:7px; z-index:10; }
+.carrossel-dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.45); border:none; cursor:pointer; padding:0; transition:background .3s, transform .3s; }
+.carrossel-dot.ativo { background:#fff; transform:scale(1.35); }
+@media (max-width:600px) { .carrossel { aspect-ratio:4/3; max-height:280px; } }
+</style>
+
+<script>
+(function() {
+    if (!document.getElementById('carrosselTrack')) return;
+    const track  = document.getElementById('carrosselTrack');
+    const slides = track.querySelectorAll('.carrossel-slide');
+    if (!slides.length) return;
+    const dotsEl = document.getElementById('carrosselDots');
+    let atual = 0, timer;
+
+    slides.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'carrossel-dot' + (i === 0 ? ' ativo' : '');
+        d.setAttribute('role', 'tab');
+        d.setAttribute('aria-label', 'Ir para foto ' + (i + 1));
+        d.onclick = () => ir(i);
+        dotsEl.appendChild(d);
+    });
+
+    function ir(idx) {
+        slides[atual].classList.remove('ativo');
+        atual = (idx + slides.length) % slides.length;
+        track.style.transform = `translateX(-${atual * 100}%)`;
+        slides[atual].classList.add('ativo');
+        dotsEl.querySelectorAll('.carrossel-dot').forEach((d, i) => d.classList.toggle('ativo', i === atual));
+        clearInterval(timer);
+        timer = setInterval(() => ir(atual + 1), 5000);
+    }
+
+    ir(0);
+    document.getElementById('btnPrev').onclick = () => ir(atual - 1);
+    document.getElementById('btnNext').onclick = () => ir(atual + 1);
+
+    let tx = 0;
+    track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend',   e => {
+        const diff = tx - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) ir(diff > 0 ? atual + 1 : atual - 1);
+    });
+})();
+</script>

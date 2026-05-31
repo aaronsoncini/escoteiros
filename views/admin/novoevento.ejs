@@ -1,0 +1,81 @@
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/navbar.ejs') %>
+
+<div class="page-wrapper">
+    <div class="page-header">
+        <h1>Novo Evento</h1>
+        <p class="subtitle">Cadastre um evento na Agenda ou no Calendário</p>
+    </div>
+
+    <div class="container">
+        <div class="admin-nav">
+            <a href="/admin/eventos" class="btn btn-outline">← Voltar</a>
+        </div>
+
+        <div class="card">
+            <h2>Dados do Evento</h2>
+
+            <% if (erro) { %>
+            <div class="alert alert-erro"><%= erro %></div>
+            <% } %>
+
+            <form method="post" action="/admin/eventos/salvar" enctype="multipart/form-data">
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="titulo">Título *</label>
+                            <input type="text" id="titulo" name="titulo" placeholder="Nome do evento" required maxlength="200">
+                        </div>
+                        <div class="form-field">
+                            <label for="tipo">Tipo *</label>
+                            <select id="tipo" name="tipo" required onchange="toggleImagem(this.value)">
+                                <option value="">Selecione o tipo...</option>
+                                <option value="agenda">Agenda (mensal, com imagem)</option>
+                                <option value="calendario">Calendário (anual, sem imagem)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="data">Data *</label>
+                            <input type="date" id="data" name="data" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="horario">Horário</label>
+                            <input type="text" id="horario" name="horario" placeholder="Ex: 14h às 18h">
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="local">Local</label>
+                        <input type="text" id="local" name="local" placeholder="Ex: Sede do Grupo, Parque Estadual...">
+                    </div>
+                    <div class="form-field">
+                        <label for="descricao">Descrição</label>
+                        <textarea id="descricao" name="descricao" placeholder="Detalhes sobre o evento..." rows="4" maxlength="1000"></textarea>
+                    </div>
+                    <div class="form-field" id="campoImagem" style="display:none;">
+                        <label for="imagem">Imagem do Evento</label>
+                        <input type="file" id="imagem" name="imagem" accept="image/*" style="padding:10px;border:1.5px solid #E2DCC9;border-radius:var(--r-md);background:var(--creme);">
+                        <small style="color:var(--texto-suave);font-size:12px;">Apenas para eventos do tipo Agenda. Máximo 5MB.</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Salvar Evento</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="alert alert-info">
+            📌 <strong>Agenda</strong> = eventos do mês corrente, exibidos com imagem e detalhes.<br>
+            📋 <strong>Calendário</strong> = visão anual de todos os eventos, sem imagem.
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
+
+<script>
+function toggleImagem(tipo) {
+    document.getElementById('campoImagem').style.display = tipo === 'agenda' ? 'flex' : 'none';
+}
+// Define data mínima como hoje
+document.getElementById('data').min = new Date().toISOString().split('T')[0];
+</script>

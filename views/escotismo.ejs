@@ -1,0 +1,64 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/navbar.ejs') %>
+
+<div class="page-wrapper">
+    <div class="page-header">
+        <h1>Escotismo</h1>
+        <p class="subtitle">Princípios, métodos e o lema que guiam nossa patrulha</p>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <span class="patch">Princípios</span>
+            <h2>Os Três Princípios</h2>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:4px;">
+                <div style="background:rgba(0,83,33,.06);border-radius:var(--r-md);padding:20px;border-left:4px solid var(--verde-claro);">
+                    <h3 style="color:var(--floresta);font-size:15px;margin-bottom:8px;">Dever para com Deus</h3>
+                    <p style="font-size:14px;color:var(--texto-suave);">Adesão a princípios espirituais, fidelidade à religião que os expressa e aceitação dos deveres que deles decorrem.</p>
+                </div>
+                <div style="background:rgba(0,83,33,.06);border-radius:var(--r-md);padding:20px;border-left:4px solid var(--ouro);">
+                    <h3 style="color:var(--floresta);font-size:15px;margin-bottom:8px;">Dever para com os Outros</h3>
+                    <p style="font-size:14px;color:var(--texto-suave);">Lealdade ao seu país em harmonia com a promoção da paz local, nacional e internacional, e participação no desenvolvimento da sociedade.</p>
+                </div>
+                <div style="background:rgba(0,83,33,.06);border-radius:var(--r-md);padding:20px;border-left:4px solid var(--terra);">
+                    <h3 style="color:var(--floresta);font-size:15px;margin-bottom:8px;">Dever para Consigo Mesmo</h3>
+                    <p style="font-size:14px;color:var(--texto-suave);">Responsabilidade pelo desenvolvimento de si mesmo.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <span class="patch">Métodos</span>
+            <h2>O Método Escoteiro</h2>
+            <ul style="color:var(--texto-suave);padding-left:20px;line-height:2.2;font-size:15px;">
+                <li><strong>Promessa e Lei Escoteira</strong> — compromisso pessoal com valores</li>
+                <li><strong>Aprender fazendo</strong> — educação pela ação prática</li>
+                <li><strong>Sistema de patrulha</strong> — trabalho em equipe com autonomia</li>
+                <li><strong>Atividades progressivas</strong> — desafios adequados a cada faixa etária</li>
+                <li><strong>Vida ao ar livre</strong> — contato com a natureza e aventuras</li>
+                <li><strong>Apoio de adultos</strong> — orientação por chefes voluntários</li>
+            </ul>
+        </div>
+
+        <div class="card" style="background:linear-gradient(135deg,var(--floresta),var(--floresta-dark));color:#fff;border:none;">
+            <span class="patch" style="background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.3);">Lema</span>
+            <h2 style="color:var(--verde-claro);font-size:28px;margin-top:12px;">"Sempre Alerta"</h2>
+            <p style="color:rgba(255,255,255,.85);line-height:1.7;margin-top:8px;">
+                O lema escoteiro "Sempre Alerta" significa estar preparado para agir, ajudar e servir ao próximo a qualquer momento —
+                com corpo, mente e espírito prontos.
+            </p>
+        </div>
+
+        <div class="card">
+            <span class="patch">Inscrição</span>
+            <h2>Como me Inscrever?</h2>
+            <p style="color:var(--texto-suave);line-height:1.7;margin-bottom:20px;">
+                Para fazer parte do Grupo Minuano, basta entrar em contato conosco ou visitar nossa sede aos sábados das 14h às 18h.
+                Aceitamos lobinhos (6 anos) a pioneiros (21 anos).
+            </p>
+            <a href="/contato" class="btn btn-primary">Fale Conosco para se inscrever →</a>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

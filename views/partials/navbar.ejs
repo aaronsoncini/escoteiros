@@ -1,0 +1,79 @@
+<body>
+
+<!-- OVERLAY MOBILE -->
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<!-- MENU LATERAL MOBILE -->
+<nav class="menu-lateral" id="menuLateral">
+    <div style="padding:20px 24px 10px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:6px;">
+        <img src="/imgs/logo-minuano.png" alt="Logo GE Minuano" style="width:90px;display:block;margin:0 auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.3));">
+    </div>
+    <a href="/" class="topico-menu">Home</a>
+    <a href="/quem-somos" class="topico-menu">Quem Somos</a>
+    <a href="/escotismo" class="topico-menu">Escotismo</a>
+    <a href="/ramos" class="topico-menu">Ramos</a>
+    <a href="/agenda" class="topico-menu">Agenda</a>
+    <a href="/calendario" class="topico-menu">Calendário</a>
+    <a href="/galeria" class="topico-menu">Galeria</a>
+    <a href="/downloads" class="topico-menu">Downloads</a>
+    <a href="/parceiros" class="topico-menu">Empresas Amigas</a>
+    <a href="/contato" class="topico-menu">Contato</a>
+</nav>
+
+<!-- NAVBAR FIXA -->
+<nav class="navbar">
+    <a href="/" class="logo" aria-label="71º GE Minuano — ir para a página inicial">
+        <img src="/imgs/logo-minuano.png" alt="Logo GE Minuano" class="navbar-logo">
+        <span class="navbar-nome">GE MINUANO</span>
+    </a>
+    <div class="container-fluid">
+        <a href="/" class="topico-menu">Home</a>
+        <a href="/quem-somos" class="topico-menu">Quem Somos</a>
+        <a href="/escotismo" class="topico-menu">Escotismo</a>
+        <a href="/ramos" class="topico-menu">Ramos</a>
+        <a href="/agenda" class="topico-menu">Agenda</a>
+        <a href="/calendario" class="topico-menu">Calendário</a>
+        <a href="/galeria" class="topico-menu">Galeria</a>
+        <a href="/downloads" class="topico-menu">Downloads</a>
+        <a href="/parceiros" class="topico-menu">Empresas Amigas</a>
+        <a href="/contato" class="topico-menu">Contato</a>
+    </div>
+    <button class="menu" id="btnMenu" aria-label="Abrir menu" onclick="abrirMenu()">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+    </button>
+</nav>
+
+<style>
+.navbar-logo {
+    height: 40px;
+    width: auto;
+    display: block;
+    filter: drop-shadow(0 1px 4px rgba(0,0,0,.4));
+    transition: transform .3s;
+}
+.logo:hover .navbar-logo { transform: scale(1.06); }
+.navbar-nome {
+    font-family: 'Bitter', Georgia, serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: .5px;
+    color: #fff;
+}
+</style>
+
+<script>
+    function abrirMenu() {
+        document.getElementById('menuLateral').classList.add('aberto');
+        document.getElementById('menuOverlay').classList.add('ativo');
+        document.body.classList.add('menu-aberto');
+    }
+    function fecharMenu() {
+        document.getElementById('menuLateral').classList.remove('aberto');
+        document.getElementById('menuOverlay').classList.remove('ativo');
+        document.body.classList.remove('menu-aberto');
+    }
+    document.getElementById('menuOverlay').addEventListener('click', fecharMenu);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharMenu(); });
+</script>
